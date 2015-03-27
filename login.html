@@ -1,0 +1,198 @@
+<html>
+<head>
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
+  <link href="css/roboto.min.css" rel="stylesheet">
+  <link href="css/material.min.css" rel="stylesheet">
+  <link href="css/ripples.min.css" rel="stylesheet">
+
+
+  <style>
+  .tag {
+    padding: 0.5em;
+    margin:0.2em;
+    border-radius:1em;
+    background-color:#82B1FF;
+    float:left;
+  }
+  .inline-form .checkbox{
+    margin-top:5px;
+    margin-right:5px;
+  }
+  </style>
+
+</head>
+
+<body>
+  <!--Navbar Start-->
+  <div class="navbar navbar-material-red">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-material-light-red-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">BBC News For You</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-material-light-red-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="javascript:void(0)">Login</a></li>
+        <li><a href="javascript:void(0)">Notifications</a></li>
+        <li><a href="javascript:void(0)">Favorited</a></li>
+        <li><a href="javascript:void(0)">Reccomended news</a></li>
+        <li><a href="javascript:void(0)">Near Me</a></li>
+        <li><a href="javascript:void(0)">Photo feed</a></li>
+      </ul>
+    </div>
+  </div>
+  <!--Nav bar end-->
+
+  <!-- Your site -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
+
+        <div class="panel panel-default" id="login">
+          <div class="panel-heading">
+            <h3>Login</h3>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <input class="form-control floating-label" type="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input class="form-control floating-label" type="password" placeholder="Password">
+            </div>
+            <button class="btn btn-success btn-flat"><i class="mdi-navigation-check"></i> Signin</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5 col-lg-4" id="signup">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Sign up</h3>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <input class="form-control floating-label" type="text" placeholder="Name" name="name">
+            </div>
+            <div class="form-group">
+              <input class="form-control floating-label" type="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input class="form-control floating-label" type="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <input class="form-control floating-label" type="password" placeholder="Valdiate Password">
+            </div>
+            <button class="btn btn-success btn-flat" id="makeProfile"><i class="mdi-navigation-expand-more"></i> Create Profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2" style="display:none" id="buildProfile">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="form-group">
+              <label class="control-label">Show me news from ...</label>
+              <div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="location" value="world">
+                    The whole world
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="location" value="local">
+                    My local area
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label"> relating to <span id="relatesTo" style="font-style: italic;">...</span> </label>
+                <div class="inline-form clearfix" id="intrestTags">
+
+                </div>
+              </div>
+              <button type="button" class="btn btn-success btn-flat" id="finishProfile">
+                <i class="mdi-navigation-check"></i>
+                Show me <em>My</em> News
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Your site ends -->
+
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+  <script src="js/ripples.min.js"></script>
+  <script src="js/material.min.js"></script>
+  <script>
+  $(document).ready(function() {
+
+    $("#makeProfile").click(function(){
+      $("#login").hide();
+      $("#signup").removeClass("col-md-5 col-lg-4").addClass("col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2");
+      $("#signup input").attr("disabled","");
+      $("#makeProfile").addClass("disabled");
+      $("#buildProfile").show()
+    });
+
+    $("#finishProfile").click(function(){
+      var query = $.param({
+        name:$("[name=name]").val(),
+        tags:$("#intrestTags *:checked").map(function(){return $(this).val()}).toArray()
+      })
+      document.location = "/home/ripp/HACK/profile.html?"+$.param({
+        name:$("[name=name]").val(),
+        tags:$("#intrestTags *:checked").map(function(){return $(this).val()}).toArray()
+      })
+    })
+
+    $.each([
+      "Technology",
+      "Politics",
+      "Animals",
+      "Goverments",
+      "Cars",
+      "Money",
+      "Travel",
+      "Food",
+      "Pubs",
+      "Weather",
+      "Finance",
+      "Fashion",
+      "Health",
+      "Education"
+      ],function(n){
+        $("<div>").addClass("checkbox pull-left").append(
+          $("<label>").text(" "+this).prepend(
+            $("<input>")
+              .attr("type","checkbox")
+              .attr("value",this.replace(/\s+/g,"-"))
+              .attr("name","intrests")
+              .change(function(e){
+                var n = $("#intrestTags *:checked").map(function(){return $(this).parent().text()}).toArray().toString(",");
+                if(n==""){n="..."}
+                $("#relatesTo").text(n)
+              })
+            )
+          ).appendTo("#intrestTags");
+      });
+    $.material.init();
+  });
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+CREATE TABLE GAME (
+	BAT_1 INT NOT NULL.
+	BAT_2 INT NOT NULL,
+	...
+	SEER INT NOT NULL,
+	ALIVE_S BOOLEAN DEFAULT FALSE,
+	TOWN_1 INT NOT NULL,
+	ALIVE_1 BOOLEAN DEFAULT FALSE,
+	TOWN_2 INT NOT NULL,
+	ALIVE_2 BOOLEAN DEFAULT FALSE,
+	TOWN_3 INT NOT NULL,
+	ALIVE_2 BOOLEAN DEFAULT FALSE,
+	...
+)
+
+Seer Elimination
+:seer :sees :as
+DELETE FROM GAME WHERE SEER=:seer AND :notAs_[1..n]=:sees;
+
+Bat Elimination
+:bat :kills
+DELETE FROM GAME WHERE BAT_1=:bat AND BAT_[2..n]=:kills;
+UPDATE GAME SET ALIVE_S|ALIVE_[1..n]=TRUE WHERE SEER|TOWN_[1..n]=:kills;
+
+Seer Target is Bat
+:seer :target
+SELECT COUNT(*) FROM GAME WHERE SEER=:seer AND ALIVE_S AND BAT_[1..n] = :target;
+
+Seer States
+:seer
+SELECT COUNT(*) FROM GAME WHERE SEER=:seer AND ALIVE_S;
+
+Alive States
+:player
+SELECT COUNT(*) FROM GAME WHERE SEER|TOWN_[1..n]=:player AND ALIVE_S|ALIVE_[1..n];
+
+Bat States
+:player
+SELECT COUNT(*) FROM GAME WHERE BAT_[1..n]=:player AND BAT_[1..n];
+
+/*
+For each valid seer:
+	Calcuate the number of states they can be the seer in (Seer States)
+	Check the chance their target is a bat (Seer Target is Bat/Seer States)
+	Cache this value
+
+For each valid seer again (now that we have cached all the results):
+	Remove all states where the seer sees them wrongly (Seer Elimination)
+
+For each valid Alpha Bat:
+	Run Bat Elimination
+
+Output updated table:
+	Alive state for each player (Alive States)
+	Seer State for each player (Seer States)
+	Bat States for each player (Bat States)
+
+For each new dead player:
+	Announce it
+

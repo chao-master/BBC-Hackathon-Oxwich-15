@@ -1,0 +1,237 @@
+<html>
+
+<head>
+
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
+  <link href="css/roboto.min.css" rel="stylesheet">
+  <link href="css/material.min.css" rel="stylesheet">
+  <link href="css/ripples.min.css" rel="stylesheet">
+
+  <style>
+    @-webkit-keyframes spin {
+      from { -webkit-transform: rotate(0deg); }
+      to { -webkit-transform: rotate(360deg); }
+    }
+
+    .row-picture .circle{
+      background-position: center!important;
+      background-size: cover!important;
+      background-repeat: no-repeat!important;
+    }
+    .loading {
+      text-align: center;
+    }
+    .loading i {
+      font-size: 5em!important;
+      -webkit-animation: spin 1s linear 0s infinite;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!--Navbar Start-->
+  <div class="navbar navbar-material-red">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-material-light-red-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">BBC News For You</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-material-light-red-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="javascript:void(0)" class="put-name-here"></a></li>
+        <li><a href="javascript:void(0)">Notifications</a></li>
+        <li><a href="javascript:void(0)">Favorited</a></li>
+        <li><a href="javascript:void(0)">Reccomended news</a></li>
+        <li><a href="javascript:void(0)">Near Me</a></li>
+        <li><a href="javascript:void(0)">Photo feed</a></li>
+      </ul>
+    </div>
+  </div>
+  <!--Nav bar end-->
+
+  <!-- Your site -->
+  <div class="fluid-container">
+    <div class="row">
+
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h1><span class="put-name-here"></span>'s news feed</h1>
+          </div>
+          <div class="panel-body">
+            <div class="list-group" id="articles">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h1>Recommendation </h1>
+          </div>
+          <div class="panel-body">
+            <div class="list-group" id="following">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h1>Refine interests</h1>
+          </div>
+          <div class="panel-body"style="text-align:center">
+            <button type= "button" class="btn btn-default btn-material-red">
+              Car
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Wedding
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Crash
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Prince
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Family
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Dog
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              School
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Monkey
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Food
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Drink
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Money
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Travel
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Weather
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Planes
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Laptops
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Phones
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Science
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Water
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Music
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Football
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              SuperDry 
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Rugby
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Night clubs
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Aliens
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Doctors
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Politics
+            </button>
+            <button type= "button" class="btn btn-default btn-material-red">
+              Jeremy Clarkson
+            </button>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- Your site ends -->
+
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+  <script src="js/ripples.min.js"></script>
+  <script src="js/material.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    var qd = {};
+    location.search.substr(1).split("&").forEach(function(item) {var k = decodeURIComponent(item.split("=")[0]), v = decodeURIComponent(item.split("=")[1]).replace(/\+/g," "); (k in qd) ? qd[k].push(v) : qd[k] = [v,]})
+    console.log(qd);
+    $(".put-name-here").text(qd.name[0])
+
+    function getNews(pootis,tags){
+      $(pootis).append('<div class="loading"><i class="mdi-navigation-refresh"></i></div>');
+
+      $.get("http://data.bbc.co.uk/bbcrd-juicer/articles.json",{
+        text:tags.join(" || "),
+        product:["NewsWeb"],
+        content_format:["TextualFormat"],
+        recent_first:"yes",
+        apikey:"YB0MY3VMHyllzPqEf5alVj5bUvGpvDVi"
+      },function(resp){
+        $(pootis).empty();
+        $.each(resp.articles,function(){
+          var that=this;
+
+          $("<div>").addClass("list-group-item withripple").append(
+            $("<div>").addClass("row-picture circle").append(
+              $("<img>").addClass("circle").css("background-image","url("+this.image.src+")")
+            )
+          ).append(
+            $("<div>").addClass("row-content").append(
+              $("<h4>").addClass("list-group-item-heading").text(this.title)
+            ).append(
+              $("<p>").addClass("light-group-item-text").text(this.description)
+            )
+          ).click(function(){
+            setTimeout(500,document.location = that.url)
+          }).appendTo(pootis)
+          $('<div class="list-group-separator"></div>').appendTo(pootis)
+        });
+        $.material.init();
+      });
+    }
+
+
+
+    getNews("#articles",qd["tags[]"])
+    getNews("#following",["cats"])
+
+    $.material.init();
+  });
+  </script>
+
+</body>
+
+</html>

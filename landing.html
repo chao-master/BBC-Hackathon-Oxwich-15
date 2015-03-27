@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
+        <link href="css/roboto.min.css" rel="stylesheet">
+        <link href="css/material.min.css" rel="stylesheet">
+        <link href="css/ripples.min.css" rel="stylesheet">
+
+        <style>
+          body {
+            background:
+              url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFElEQVQIW2NkYGCoZ2BgaGRkgAIADCkBA2VQhqcAAAAASUVORK5CYII='),
+              url('http://ichef.bbci.co.uk/news/625/media/images/81276000/jpg/_81276237_3146532.jpg')
+              center/cover;
+          }
+        </style>
+
+    </head>
+
+    <body>
+        <!--Navbar Start-->
+        <div class="navbar navbar-material-red">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-material-light-red-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0)">{{Brand}}</a>
+          </div>
+          <div class="navbar-collapse collapse navbar-material-light-red-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="javascript:void(0)">Sign up</a></li>
+              <li><a href="javascript:void(0)">Login</a></li>
+              <!--
+                  <li class="dropdown">
+                    <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="javascript:void(0)">Action</a></li>
+                      <li><a href="javascript:void(0)">Another action</a></li>
+                      <li><a href="javascript:void(0)">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li class="dropdown-header">Dropdown header</li>
+                      <li><a href="javascript:void(0)">Separated link</a></li>
+                      <li><a href="javascript:void(0)">One more separated link</a></li>
+                    </ul>
+                  </li>
+              -->
+            </ul>
+            <!--
+                <form class="navbar-form navbar-left">
+                  <input type="text" class="form-control col-lg-8" placeholder="Search">
+                </form>
+            -->
+            
+          </div>
+        </div>
+        <!--Nav bar end-->
+
+        <!-- Your site -->
+        <h1>You can add your site here.</h1>
+        <h2>To ensure that material-design theme is working, check out the buttons below.</h2>
+        <h3 class="text-muted">If you can see the ripple effect on clicking them, then you are good to go!</h3>
+
+        <p class="bs-component">
+            <a href="javascript:void(0)" class="btn btn-default">Default</a>
+            <a href="javascript:void(0)" class="btn btn-primary">Primary</a>
+            <a href="javascript:void(0)" class="btn btn-success">Success</a>
+            <a href="javascript:void(0)" class="btn btn-info">Info</a>
+            <a href="javascript:void(0)" class="btn btn-warning">Warning</a>
+            <a href="javascript:void(0)" class="btn btn-danger">Danger</a>
+            <a href="javascript:void(0)" class="btn btn-link">Link</a>
+        </p>
+
+        <!-- Your site ends -->
+
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+        <script src="js/ripples.min.js"></script>
+        <script src="js/material.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // This command is used to initialize some elements and make them work properly
+                $.material.init();
+            });
+        </script>
+
+    </body>
+
+</html>
